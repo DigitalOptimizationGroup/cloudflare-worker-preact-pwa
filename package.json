@@ -1,0 +1,46 @@
+{
+    "private": true,
+    "name": "materialdemo",
+    "version": "0.0.0",
+    "license": "MIT",
+    "scripts": {
+        "start":
+            "if-env NODE_ENV=production && npm run -s serve || npm run -s dev",
+        "build":
+            "preact build --prerender --prerenderUrls src/prerender-urls.json",
+        "dev": "preact watch",
+        "lint": "eslint src",
+        "build-worker": "webpack --config ./webpack.config.worker.js",
+        "deploy": "node ./scripts/deploy.js",
+        "new": "preact create simple simple"
+    },
+    "browserslist": ["> 1%", "IE >= 9", "last 5 versions"],
+    "eslintConfig": {
+        "extends": "eslint-config-synacor",
+        "rules": {
+            "no-unused-vars": "warn",
+            "react/sort-comp": "off",
+            "lines-around-comment": "off",
+            "react/prefer-stateless-function": "off"
+        }
+    },
+    "eslintIgnore": ["build/*"],
+    "devDependencies": {
+        "dotenv": "^6.1.0",
+        "dotenv-webpack": "^1.5.7",
+        "eslint": "^4.5.0",
+        "eslint-config-synacor": "^1.1.0",
+        "if-env": "^1.0.0",
+        "on-build-webpack": "^0.1.0",
+        "preact-cli": "^3.0.0-next.14",
+        "webpack-cli": "^3.1.2"
+    },
+    "dependencies": {
+        "preact": "^8.2.1",
+        "preact-compat": "^3.17.0",
+        "preact-material-components": "^1.4.3",
+        "preact-redux": "^2.0.3",
+        "preact-router": "^2.5.5",
+        "redux": "^4.0.1"
+    }
+}
